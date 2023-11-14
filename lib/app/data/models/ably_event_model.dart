@@ -20,6 +20,3 @@ class AblyOrderEventModel {
     );
   }
 }
-
-// channel - eden:ZbSz2jSlYsaOZ6UIrjRZauO0NMq1
-// data - { "uid": "ZbSz2jSlYsaOZ6UIrjRZauO0NMq1", "order_id": "2023", "status": "ORDER_ACCEPTED" }
