@@ -3,7 +3,6 @@ import 'package:eden_work_sample/core/extensions/extentions.dart';
 import 'package:eden_work_sample/core/utils/config.dart';
 import 'package:eden_work_sample/core/utils/context_utils.dart';
 import 'package:eden_work_sample/core/widgets/network_image.dart';
-import 'package:eden_work_sample/core/widgets/price_text.dart';
 import 'package:eden_work_sample/core/widgets/progress_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -46,9 +45,9 @@ class OrderItem extends StatelessWidget {
                           ],
                         ),
                       ),
-                      PriceText(
-                        price: order.price,
-                        priceStyle: Config.textTheme.titleSmall,
+                      Text(
+                        order.price.formatedPrice,
+                        style: Config.textTheme.titleSmall,
                       ),
                       Text(
                         order.orderDate.formatDateTime,

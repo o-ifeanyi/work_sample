@@ -1,6 +1,6 @@
 import 'package:eden_work_sample/app/data/models/order_model.dart';
+import 'package:eden_work_sample/core/extensions/extentions.dart';
 import 'package:eden_work_sample/core/utils/config.dart';
-import 'package:eden_work_sample/core/widgets/price_text.dart';
 import 'package:flutter/material.dart';
 
 class OrderDetailFooter extends StatelessWidget {
@@ -68,7 +68,7 @@ class OrderSummaryInfo extends StatelessWidget {
           style: Config.textTheme.bodyMedium
               ?.copyWith(fontWeight: FontWeight.bold),
         ),
-        PriceText(price: price),
+        Text(price.formatedPrice),
       ],
     );
   }

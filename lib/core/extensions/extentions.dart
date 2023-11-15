@@ -13,12 +13,13 @@ extension DateExtension on DateTime {
 }
 
 extension DoubleExt on double {
-  String get formatedPrice => NumberFormat.decimalPattern().format(this);
+  String get formatedPrice => NumberFormat.simpleCurrency(
+        name: 'NGN',
+        decimalDigits: 2,
+      ).format(this);
 }
 
 extension StringExt on String {
-  String get currency => NumberFormat.simpleCurrency(name: this).currencySymbol;
-
   String get routeName {
     if (this == '/') return this;
     if (startsWith('/')) return split('/').last;
