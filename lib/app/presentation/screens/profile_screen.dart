@@ -1,12 +1,12 @@
 import 'package:eden_work_sample/app/presentation/provider/auth_provider.dart';
 import 'package:eden_work_sample/app/presentation/provider/theme_provider.dart';
 import 'package:eden_work_sample/app/presentation/widgets/default_app_bar.dart';
-import 'package:eden_work_sample/app/presentation/widgets/profile_avatar.dart';
 import 'package:eden_work_sample/core/routes/routes.dart';
 import 'package:eden_work_sample/core/utils/app_icons.dart';
 import 'package:eden_work_sample/core/utils/config.dart';
 import 'package:eden_work_sample/core/theme/theme.dart';
 import 'package:eden_work_sample/core/widgets/custom_button.dart';
+import 'package:eden_work_sample/core/widgets/network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,7 +23,13 @@ class ProfileScreen extends ConsumerWidget {
       body: ListView(
         padding: Config.contentPadding(h: 20, v: 20),
         children: [
-          ProfileAvatar(imageUrl: user.photoUrl),
+          NetworkImageWidget(
+            url: user.photoUrl,
+            height: 100,
+            width: 100,
+            shape: BoxShape.circle,
+            fit: BoxFit.contain,
+          ),
           Config.vGap10,
           Text(user.name, textAlign: TextAlign.center),
           Config.vGap5,

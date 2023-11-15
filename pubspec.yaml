@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   ably_flutter: ^1.2.22
+  cached_network_image: ^3.3.0
   cupertino_icons: ^1.0.6
   envied: ^0.5.1
   font_awesome_flutter: ^10.6.0
@@ -26,6 +27,7 @@ dependencies:
   json_annotation: ^4.8.1
   overlay_support: ^2.1.0
   shared_preferences: ^2.2.2
+  shimmer: ^3.0.0
 
   # Firebase
   firebase_core: ^2.17.0

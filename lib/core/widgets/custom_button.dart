@@ -1,3 +1,4 @@
+import 'package:eden_work_sample/core/utils/config.dart';
 import 'package:flutter/material.dart';
 
 enum ButtonType { filled, outlined, elevated, text }
@@ -9,7 +10,7 @@ class CustomButton extends StatelessWidget {
     this.icon,
     this.onPressed,
     this.hPadding = 0,
-    this.cPadding = 18,
+    this.cPadding = 15,
     this.type = ButtonType.filled,
   });
 
@@ -24,7 +25,11 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final child = Padding(
       padding: EdgeInsets.all(cPadding),
-      child: Text(text),
+      child: Text(
+        text,
+        style:
+            Config.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+      ),
     );
 
     return Padding(

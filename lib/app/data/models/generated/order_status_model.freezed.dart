@@ -21,6 +21,7 @@ OrderStatusModel _$OrderStatusModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$OrderStatusModel {
   String get id => throw _privateConstructorUsedError;
+  String get nextId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
@@ -37,7 +38,12 @@ abstract class $OrderStatusModelCopyWith<$Res> {
           OrderStatusModel value, $Res Function(OrderStatusModel) then) =
       _$OrderStatusModelCopyWithImpl<$Res, OrderStatusModel>;
   @useResult
-  $Res call({String id, String title, String description, DateTime date});
+  $Res call(
+      {String id,
+      String nextId,
+      String title,
+      String description,
+      DateTime date});
 }
 
 /// @nodoc
@@ -54,6 +60,7 @@ class _$OrderStatusModelCopyWithImpl<$Res, $Val extends OrderStatusModel>
   @override
   $Res call({
     Object? id = null,
+    Object? nextId = null,
     Object? title = null,
     Object? description = null,
     Object? date = null,
@@ -62,6 +69,10 @@ class _$OrderStatusModelCopyWithImpl<$Res, $Val extends OrderStatusModel>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      nextId: null == nextId
+          ? _value.nextId
+          : nextId // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -87,7 +98,12 @@ abstract class _$$OrderStatusModelImplCopyWith<$Res>
       __$$OrderStatusModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title, String description, DateTime date});
+  $Res call(
+      {String id,
+      String nextId,
+      String title,
+      String description,
+      DateTime date});
 }
 
 /// @nodoc
@@ -102,6 +118,7 @@ class __$$OrderStatusModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? nextId = null,
     Object? title = null,
     Object? description = null,
     Object? date = null,
@@ -110,6 +127,10 @@ class __$$OrderStatusModelImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      nextId: null == nextId
+          ? _value.nextId
+          : nextId // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -132,6 +153,7 @@ class __$$OrderStatusModelImplCopyWithImpl<$Res>
 class _$OrderStatusModelImpl implements _OrderStatusModel {
   const _$OrderStatusModelImpl(
       {required this.id,
+      required this.nextId,
       required this.title,
       required this.description,
       required this.date});
@@ -142,6 +164,8 @@ class _$OrderStatusModelImpl implements _OrderStatusModel {
   @override
   final String id;
   @override
+  final String nextId;
+  @override
   final String title;
   @override
   final String description;
@@ -150,7 +174,7 @@ class _$OrderStatusModelImpl implements _OrderStatusModel {
 
   @override
   String toString() {
-    return 'OrderStatusModel(id: $id, title: $title, description: $description, date: $date)';
+    return 'OrderStatusModel(id: $id, nextId: $nextId, title: $title, description: $description, date: $date)';
   }
 
   @override
@@ -159,6 +183,7 @@ class _$OrderStatusModelImpl implements _OrderStatusModel {
         (other.runtimeType == runtimeType &&
             other is _$OrderStatusModelImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.nextId, nextId) || other.nextId == nextId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -167,7 +192,8 @@ class _$OrderStatusModelImpl implements _OrderStatusModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, description, date);
+  int get hashCode =>
+      Object.hash(runtimeType, id, nextId, title, description, date);
 
   @JsonKey(ignore: true)
   @override
@@ -187,6 +213,7 @@ class _$OrderStatusModelImpl implements _OrderStatusModel {
 abstract class _OrderStatusModel implements OrderStatusModel {
   const factory _OrderStatusModel(
       {required final String id,
+      required final String nextId,
       required final String title,
       required final String description,
       required final DateTime date}) = _$OrderStatusModelImpl;
@@ -196,6 +223,8 @@ abstract class _OrderStatusModel implements OrderStatusModel {
 
   @override
   String get id;
+  @override
+  String get nextId;
   @override
   String get title;
   @override

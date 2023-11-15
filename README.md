@@ -22,7 +22,7 @@ ABLY_KEY=<Your Ably Api Subscribe Key>
     - First attach to a unique channel using `eden:<user_id>`, e.g `eden:ZbSz2jSlYsaOZ6UIrjRZauO0NMq1`.
     - Enter `order_updates` as the **Event name** and `{ "uid": <user_id>, "order_id": <order_id>, "status": <order_status> }` as the **Message data** then hit the **Publish message** button.
     - There are 3 dummy orders on the app with `order_id` as `2023`, `2024`, `2025` respectively.
-    - The `order_status` tracked are:
+    - The `<order_status>` tracked are:
     ```
     ORDER_ACCEPTED
     PICK_UP_IN_PROGRESS

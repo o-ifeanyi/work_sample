@@ -10,6 +10,7 @@ class OrderModel with _$OrderModel {
   const factory OrderModel({
     required String id,
     required String item,
+    required String photoUrl,
     required int quantity,
     required double price,
     required List<OrderStatusModel> status,

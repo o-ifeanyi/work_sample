@@ -2,6 +2,8 @@ import 'package:eden_work_sample/app/data/models/order_model.dart';
 import 'package:eden_work_sample/core/extensions/extentions.dart';
 import 'package:eden_work_sample/core/utils/config.dart';
 import 'package:eden_work_sample/core/utils/context_utils.dart';
+import 'package:eden_work_sample/core/widgets/network_image.dart';
+import 'package:eden_work_sample/core/widgets/price_text.dart';
 import 'package:eden_work_sample/core/widgets/progress_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -24,13 +26,7 @@ class OrderItem extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: Config.y(80),
-                  width: Config.y(80),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: context.theme.dividerColor),
-                ),
+                NetworkImageWidget(url: order.photoUrl),
                 Config.hGap15,
                 Expanded(
                   child: Column(
@@ -50,9 +46,9 @@ class OrderItem extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Text(
-                        order.price.formatedPrice,
-                        style: Config.textTheme.titleSmall,
+                      PriceText(
+                        price: order.price,
+                        priceStyle: Config.textTheme.titleSmall,
                       ),
                       Text(
                         order.orderDate.formatDateTime,

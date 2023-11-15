@@ -34,6 +34,9 @@ class SocketProvider extends Notifier<ConnectionState> {
           dialogService.displayMessage('Failed to connect to Ably');
           break;
         default:
+          dialogService
+              .displayMessage('Connection state changed: ${state.name}');
+          break;
       }
     });
   }
@@ -43,23 +46,21 @@ class SocketProvider extends Notifier<ConnectionState> {
       final channel = realtime.channels.get('eden:$uid');
       final sub = channel.subscribe(name: 'order_updates');
       sub.listen((event) {
-        if (event.data == null || event.timestamp == null) return;
+        if (event.data == null) return;
+        final date = event.timestamp ?? DateTime.now();
         switch (event.name) {
           case 'order_updates':
             final data = AblyOrderEventModel.fromEvent(event);
             ref.read(orderProvider.notifier).updateOrder(
                   data.orderId,
                   switch (data.status) {
-                    'ORDER_ACCEPTED' =>
-                      OrderStatusModel.accepted(event.timestamp!),
+                    'ORDER_ACCEPTED' => OrderStatusModel.accepted(date),
                     'PICK_UP_IN_PROGRESS' =>
-                      OrderStatusModel.pickUpInProgress(event.timestamp!),
+                      OrderStatusModel.pickUpInProgress(date),
                     'DROP_OFF_IN_PROGRESS' =>
-                      OrderStatusModel.dropOffInProgress(event.timestamp!),
-                    'ORDER_ARRIVED' =>
-                      OrderStatusModel.arrived(event.timestamp!),
-                    'ORDER_DELIVERED' =>
-                      OrderStatusModel.delivered(event.timestamp!),
+                      OrderStatusModel.dropOffInProgress(date),
+                    'ORDER_ARRIVED' => OrderStatusModel.arrived(date),
+                    'ORDER_DELIVERED' => OrderStatusModel.delivered(date),
                     _ => null
                   },
                 );

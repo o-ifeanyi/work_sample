@@ -1,6 +1,6 @@
 import 'package:eden_work_sample/app/data/models/order_model.dart';
-import 'package:eden_work_sample/core/extensions/extentions.dart';
 import 'package:eden_work_sample/core/utils/config.dart';
+import 'package:eden_work_sample/core/widgets/price_text.dart';
 import 'package:flutter/material.dart';
 
 class OrderDetailFooter extends StatelessWidget {
@@ -27,18 +27,17 @@ class OrderDetailFooter extends StatelessWidget {
               children: [
                 OrderSummaryInfo(
                   leading: 'Sub total',
-                  trailing: (order.price * order.quantity).formatedPrice,
+                  price: order.price * order.quantity,
                 ),
                 Config.vGap10,
-                OrderSummaryInfo(
+                const OrderSummaryInfo(
                   leading: 'Delivery',
-                  trailing: 800.0.formatedPrice,
+                  price: 800.0,
                 ),
                 Config.vGap10,
                 OrderSummaryInfo(
                   leading: 'Total',
-                  trailing:
-                      ((order.price * order.quantity) + 800.0).formatedPrice,
+                  price: (order.price * order.quantity) + 800.0,
                 ),
               ],
             ),
@@ -53,11 +52,11 @@ class OrderSummaryInfo extends StatelessWidget {
   const OrderSummaryInfo({
     super.key,
     required this.leading,
-    required this.trailing,
+    required this.price,
   });
 
   final String leading;
-  final String trailing;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +68,7 @@ class OrderSummaryInfo extends StatelessWidget {
           style: Config.textTheme.bodyMedium
               ?.copyWith(fontWeight: FontWeight.bold),
         ),
-        Text(trailing),
+        PriceText(price: price),
       ],
     );
   }

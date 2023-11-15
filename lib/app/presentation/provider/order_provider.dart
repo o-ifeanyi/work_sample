@@ -17,14 +17,16 @@ class OrderProvider extends Notifier<OrderState> {
 
   Future<void> getOrders() async {
     state = const OrderState.loading();
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
     state = OrderState.loaded(_orders);
   }
 
   Future<void> updateOrder(String id, OrderStatusModel? status) async {
     if (status == null) return;
     final order = _orders.where((e) => e.id == id).firstOrNull;
-    if (order == null || order.status.any((e) => e.id == status.id)) return;
+    if (order == null ||
+        order.status.any((e) => e.id == status.id) ||
+        order.status.lastOrNull?.nextId != status.id) return;
     final orderIndex = _orders.indexOf(order);
     _orders[orderIndex] = order.copyWith(
       status: [...order.status, status],

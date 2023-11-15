@@ -13,30 +13,17 @@ extension DateExtension on DateTime {
 }
 
 extension DoubleExt on double {
-  String get formatedPrice => NumberFormat.simpleCurrency(
-        name: 'NGN',
-        decimalDigits: 2,
-      ).format(this);
-
-  String get trim => toStringAsFixed(2);
+  String get formatedPrice => NumberFormat.decimalPattern().format(this);
 }
 
 extension StringExt on String {
+  String get currency => NumberFormat.simpleCurrency(name: this).currencySymbol;
+
   String get routeName {
     if (this == '/') return this;
     if (startsWith('/')) return split('/').last;
 
     return this;
-  }
-
-  double get price => double.parse(replaceAll(RegExp(r'[^\d.]'), ''));
-
-  String get capSentence {
-    if (trim().isEmpty) return this;
-    final words = split(' ');
-    return words
-        .map((e) => "${e.substring(0, 1).toUpperCase()}${e.substring(1)}")
-        .join(' ');
   }
 }
 

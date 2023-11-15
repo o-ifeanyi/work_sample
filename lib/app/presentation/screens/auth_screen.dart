@@ -68,7 +68,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
               _ => CustomButton(
                   hPadding: 20,
                   text: 'Continue with Google',
-                  icon: Icon(AppIcons.google, size: 18),
+                  icon: Icon(AppIcons.google, size: 20),
                   onPressed: () async {
                     await ref
                         .read(authProvider.notifier)

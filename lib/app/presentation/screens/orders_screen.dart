@@ -1,9 +1,9 @@
 import 'package:eden_work_sample/app/presentation/provider/order_provider.dart';
 import 'package:eden_work_sample/app/presentation/widgets/default_app_bar.dart';
 import 'package:eden_work_sample/app/presentation/widgets/order_item.dart';
-import 'package:eden_work_sample/core/platform_specific/platform_progress_indicator.dart';
 import 'package:eden_work_sample/core/routes/routes.dart';
 import 'package:eden_work_sample/core/utils/config.dart';
+import 'package:eden_work_sample/core/widgets/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -30,8 +30,13 @@ class _OrdersScreenState extends ConsumerState<OrdersScreen> {
     return Scaffold(
       appBar: const DefaultAppBar(),
       body: state.whenOrNull(
-        loading: () => const Center(
-          child: PlatformProgressIndicator(),
+        loading: () => ListView.separated(
+          padding: Config.contentPadding(h: 24, v: 24),
+          itemCount: 4,
+          itemBuilder: (__, _) {
+            return const ShimmerWidget(height: 200);
+          },
+          separatorBuilder: (_, __) => Config.vGap15,
         ),
         loaded: (orders) {
           return RefreshIndicator(

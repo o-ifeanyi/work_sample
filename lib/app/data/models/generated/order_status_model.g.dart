@@ -10,6 +10,7 @@ _$OrderStatusModelImpl _$$OrderStatusModelImplFromJson(
         Map<String, dynamic> json) =>
     _$OrderStatusModelImpl(
       id: json['id'] as String,
+      nextId: json['nextId'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
       date: DateTime.parse(json['date'] as String),
@@ -19,6 +20,7 @@ Map<String, dynamic> _$$OrderStatusModelImplToJson(
         _$OrderStatusModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'nextId': instance.nextId,
       'title': instance.title,
       'description': instance.description,
       'date': instance.date.toIso8601String(),

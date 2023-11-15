@@ -10,6 +10,7 @@ _$OrderModelImpl _$$OrderModelImplFromJson(Map<String, dynamic> json) =>
     _$OrderModelImpl(
       id: json['id'] as String,
       item: json['item'] as String,
+      photoUrl: json['photoUrl'] as String,
       quantity: json['quantity'] as int,
       price: (json['price'] as num).toDouble(),
       status: (json['status'] as List<dynamic>)
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$OrderModelImplToJson(_$OrderModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'item': instance.item,
+      'photoUrl': instance.photoUrl,
       'quantity': instance.quantity,
       'price': instance.price,
       'status': instance.status.map((e) => e.toJson()).toList(),
