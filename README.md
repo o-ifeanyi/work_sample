@@ -1,6 +1,8 @@
 # Eden Work Sample - Android and iOS Mobile App
 Mobile application that runs on Android and iOS devices. 
 
+https://github.com/o-ifeanyi/eden_ws/assets/60583263/a39c405d-dec8-411c-9eac-37abe7510968
+
 ## 💻 Quick Start 
 
 - Clone the repository, run:
@@ -11,7 +13,7 @@ git clone https://github.com/o-ifeanyi/eden_ws
 ```
 ABLY_KEY=<Your Ably Api Subscribe Key>
 ```
-- Navigate into the project and run: `make gen` to run code generation
+- Navigate into the project and run `make gen` to run code generation
 - Run the app in your Android or iOS device or simulator
 
 ## 🧪 Testing Realtime Updates
