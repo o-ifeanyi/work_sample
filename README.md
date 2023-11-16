@@ -1,13 +1,13 @@
 # Eden Work Sample - Android and iOS Mobile App
 Mobile application that runs on Android and iOS devices. 
 
-https://github.com/o-ifeanyi/eden_ws/assets/60583263/a39c405d-dec8-411c-9eac-37abe7510968
+https://github.com/o-ifeanyi/work_sample/assets/60583263/bc44438e-9e62-406c-8a0d-67cbfa267da9
 
 ## 💻 Quick Start 
 
 - Clone the repository, run:
 ```
-git clone https://github.com/o-ifeanyi/eden_ws
+git clone https://github.com/o-ifeanyi/work_sample
 ```
 - Create a `.env` file at the root of the project and add this 👇🏾 to it
 ```
