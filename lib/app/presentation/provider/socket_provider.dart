@@ -51,19 +51,16 @@ class SocketProvider extends Notifier<ConnectionState> {
         switch (event.name) {
           case 'order_updates':
             final data = AblyOrderEventModel.fromEvent(event);
-            ref.read(orderProvider.notifier).updateOrder(
-                  data.orderId,
-                  switch (data.status) {
-                    'ORDER_ACCEPTED' => OrderStatusModel.accepted(date),
-                    'PICK_UP_IN_PROGRESS' =>
-                      OrderStatusModel.pickUpInProgress(date),
-                    'DROP_OFF_IN_PROGRESS' =>
-                      OrderStatusModel.dropOffInProgress(date),
-                    'ORDER_ARRIVED' => OrderStatusModel.arrived(date),
-                    'ORDER_DELIVERED' => OrderStatusModel.delivered(date),
-                    _ => null
-                  },
-                );
+            final status = switch (data.status) {
+              'ORDER_ACCEPTED' => OrderStatusModel.accepted(date),
+              'PICK_UP_IN_PROGRESS' => OrderStatusModel.pickUpInProgress(date),
+              'DROP_OFF_IN_PROGRESS' =>
+                OrderStatusModel.dropOffInProgress(date),
+              'ORDER_ARRIVED' => OrderStatusModel.arrived(date),
+              'ORDER_DELIVERED' => OrderStatusModel.delivered(date),
+              _ => null
+            };
+            ref.read(orderProvider.notifier).updateOrder(data.orderId, status);
             break;
           default:
         }
