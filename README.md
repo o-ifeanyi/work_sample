@@ -7,7 +7,7 @@ https://github.com/o-ifeanyi/eden_ws/assets/60583263/a39c405d-dec8-411c-9eac-37a
 
 - Clone the repository, run:
 ```
-git clone https://github.com/o-ifeanyi/eden_ws
+git clone https://github.com/o-ifeanyi/work_sample
 ```
 - Create a `.env` file at the root of the project and add this 👇🏾 to it
 ```
