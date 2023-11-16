@@ -1,5 +1,4 @@
 .fvm/flutter_sdk
-/lib/firebase_options.dart
 .env
 
 # Miscellaneous
